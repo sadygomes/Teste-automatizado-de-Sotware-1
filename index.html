@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ambiente de Testes Avançado do Sady</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 40px; background-color: #f4f4f9;">
+    <h2>Simulador de Postagem Avançado (Limite: 100 caracteres)</h2>
+    
+    <input type="text" id="campo-postagem" maxlength="100" placeholder="Escreva seu post aqui..." style="width: 400px; padding: 12px; font-size: 16px;">
+    <button id="btn-publicar" style="padding: 12px 20px; font-size: 16px; cursor: pointer;">Publicar</button>
+    
+    <!-- Área onde o sistema vai mostrar alertas ou mensagens de erro -->
+    <p id="mensagem-alerta" style="color: red; font-weight: bold; margin-top: 15px;"></p>
+
+    <script>
+        const input = document.getElementById('campo-postagem');
+        const btn = document.getElementById('btn-publicar');
+        const alerta = document.getElementById('mensagem-alerta');
+
+        btn.addEventListener('click', () => {
+            const texto = input.value.trim(); // Limpa os espaços das pontas automaticamente
+            if (texto === "") {
+                alerta.innerText = "Erro: O campo não pode ficar vazio!";
+            } else {
+                alerta.style.color = "green";
+                alerta.innerText = "Postado com sucesso!";
+            }
+        });
+    </script>
+</body>
+</html>
